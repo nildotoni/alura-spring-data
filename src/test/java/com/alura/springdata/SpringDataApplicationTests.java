@@ -1,4 +1,4 @@
-package br.com.alura.spring.data;
+package com.alura.springdata;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
