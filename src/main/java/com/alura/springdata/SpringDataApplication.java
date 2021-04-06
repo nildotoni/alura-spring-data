@@ -1,19 +1,23 @@
 package com.alura.springdata;
 
+import java.util.Scanner;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.alura.springdata.orm.Cargo;
 import com.alura.springdata.repository.CargoRepository;
+import com.alura.springdata.services.CrudCargoService;
 
 @SpringBootApplication
 public class SpringDataApplication implements CommandLineRunner{
 
-	private final CargoRepository repository;
+	private final CrudCargoService cargoService;
+	Boolean system = true;
 	
-	public SpringDataApplication(CargoRepository repository) {
-		this.repository = repository;
+	public SpringDataApplication(CrudCargoService cargoService) {
+		this.cargoService = cargoService;
 	}
 	
 	
@@ -23,9 +27,13 @@ public class SpringDataApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-			Cargo cargo = new Cargo();
-			cargo.setDescricao("Desenvolvedor de software");
-			repository.save(cargo);
-	}
+			Scanner scanner = new Scanner(System.in);
+			
+				cargoService.inicial(scanner);
+			}
+			
+	
+
 
 }
+

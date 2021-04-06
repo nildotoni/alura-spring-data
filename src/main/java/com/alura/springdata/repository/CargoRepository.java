@@ -7,6 +7,8 @@ import com.alura.springdata.orm.Cargo;
 
 @Repository
 public interface CargoRepository extends CrudRepository<Cargo, Integer>{
+
+	Cargo findByDescricao(String descricao);
 	
 	
 	
