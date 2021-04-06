@@ -9,14 +9,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.alura.springdata.orm.Cargo;
 import com.alura.springdata.repository.CargoRepository;
 import com.alura.springdata.services.CrudCargoService;
+import com.alura.springdata.services.CrudFuncionarioService;
 
 @SpringBootApplication
 public class SpringDataApplication implements CommandLineRunner{
-
-	private final CrudCargoService cargoService;
-	Boolean system = true;
+	private CrudFuncionarioService funcionarioService;
+	private CrudCargoService cargoService;
 	
-	public SpringDataApplication(CrudCargoService cargoService) {
+	Boolean mainmenu = true;
+	
+	public SpringDataApplication(CrudFuncionarioService funcionarioService, CrudCargoService cargoService) {
+		this.funcionarioService = funcionarioService;
 		this.cargoService = cargoService;
 	}
 	
@@ -28,8 +31,24 @@ public class SpringDataApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 			Scanner scanner = new Scanner(System.in);
-			
-				cargoService.inicial(scanner);
+			   while(mainmenu) {
+				   System.out.println("Digite o menu desejado");
+				   System.out.println("1 - Funcionários");
+				   System.out.println("2 - Cargos");
+				   int action = scanner.nextInt();
+				   
+				   switch(action) {
+				   case 1:
+					   funcionarioService.menuFuncionario(scanner);
+				   case 2:
+					   cargoService.inicial(scanner);
+				   default:
+					   mainmenu = false;
+					   break;
+				   }
+				   
+			   }
+				
 			}
 			
 	

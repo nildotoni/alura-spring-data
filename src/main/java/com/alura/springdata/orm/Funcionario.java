@@ -61,6 +61,8 @@ public class Funcionario {
 		this.salario = salario;
 		this.data_contratacao = data_contratacao;
 	}
+	public Funcionario() {
+		}
 	
 	
 	
