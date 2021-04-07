@@ -141,27 +141,32 @@ public class CrudFuncionarioService {
 	System.out.println("2 - Atualizar CPF");
 	System.out.println("3 - Atualizar Salario");
 	System.out.println("4 - Atualizar Data");
-
+	System.out.println("5 - Salvar Alterações");
 	Integer menu = scanner.nextInt();
 	
 	switch(menu){
 	case 1:
+		System.out.println("Digite o nome");
 		String nome = scanner.next();
 		funcionario.setNome(nome);
 		break;
 	case 2:
+		System.out.println("Digite o CPF");
 		Integer cpf = scanner.nextInt();
 		funcionario.setCpf(cpf);
 		break;
 	case 3:
+		System.out.println("Digite o salario");
 		Integer salario = scanner.nextInt();
 		funcionario.setSalario(salario);
 		break;
 	case 4:
+		System.out.println("Digite a Data");
 		Date novaData = datando(scanner);
 		funcionario.setData_contratacao(novaData);
 		break;
 	case 5:
+		
 		funcionarioRepository.save(funcionario);
 		System.out.println(funcionario);
 		

@@ -1,6 +1,7 @@
 package com.alura.springdata.orm;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ public class Endereço {
 	private String descricao;
 	private String endereço;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Funcionario funcionario;
 
 	public Integer getId() {
@@ -57,6 +58,10 @@ public class Endereço {
 		this.descricao = descricao;
 		this.endereço = endereço;
 		this.funcionario = funcionario;
+	}
+
+	public Endereço() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

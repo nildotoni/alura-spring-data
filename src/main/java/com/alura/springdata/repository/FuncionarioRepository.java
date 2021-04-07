@@ -10,4 +10,6 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Integ
 
 	Funcionario findByNome(String findNome);
 
+	Funcionario findByCpf(Integer cpf);
+
 }
